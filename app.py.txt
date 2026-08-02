@@ -9,10 +9,10 @@ HERO_LINE_1 = "Building a body where"
 HERO_LINE_2 = "strength, confidence & health are the norm."
 FOLLOWERS = "34K+"
 INSTAGRAM_URL = "https://www.instagram.com/fit.pataka/"
-YOUTUBE_URL = "https://www.youtube.com/@fit.pataka"  # update with her real channel URL
+YOUTUBE_URL = "https://www.youtube.com/@FITPATAKA-ns95"  # update with her real channel URL
 CALENDLY_URL = "https://calendly.com/fitpataka/consultation"  # replace with her real Calendly link
 PAYMENT_LINK = "https://razorpay.me/@fitpataka"  # replace with her real payment link
-WHATSAPP_NUMBER = "91XXXXXXXXXX"  # replace with her number, no + or spaces
+WHATSAPP_NUMBER = "917338806821"  # replace with her number, no + or spaces
 
 HERO_IMAGE = "https://images.unsplash.com/photo-1518611012118-696072aa579a?q=80&w=1600"
 ABOUT_IMAGE = "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=900"
