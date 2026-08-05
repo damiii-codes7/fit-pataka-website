@@ -19,32 +19,73 @@ ABOUT_IMAGE = "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80
 
 SERVICES = [
     {
-        "title": "Weight Loss Coaching",
-        "tag": "1:1 PROGRAM",
-        "desc": "Personalized nutrition + training for sustainable fat loss, with weekly check-ins.",
-        "price": "₹4,999 / month",
-        "image": "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=800",
+        "title": "Nutrition Only",
+        "tag": "1 MONTH FROM",
+        "desc": "Custom nutrition plan and macro guidance, no group classes or PT sessions.",
+        "price": "₹5,000 / month",
     },
     {
-        "title": "Weight Gain & Strength",
-        "tag": "1:1 PROGRAM",
-        "desc": "Structured plans for healthy weight gain and strength building, built for your body type.",
-        "price": "₹4,999 / month",
-        "image": "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=800",
+        "title": "Fitness (Group Classes) Only",
+        "tag": "1 MONTH FROM",
+        "desc": "Live group fitness classes — no nutrition plan included.",
+        "price": "₹4,000 / month",
     },
     {
-        "title": "Group Transformation",
-        "tag": "8-WEEK PROGRAM",
-        "desc": "Community coaching with live check-ins and a shared meal + workout framework.",
-        "price": "₹2,499 / person",
-        "image": "https://images.unsplash.com/photo-1518611012118-696072aa579a?q=80&w=800",
+        "title": "Nutrition + Fitness",
+        "tag": "1 MONTH FROM",
+        "desc": "Nutrition plan plus group fitness classes, the most popular combo.",
+        "price": "₹8,000 / month",
     },
     {
-        "title": "Diet Plan Only",
-        "tag": "SELF-GUIDED",
-        "desc": "A custom macro-based diet plan without ongoing coaching — for those who already train.",
-        "price": "₹1,499 one-time",
-        "image": "https://images.unsplash.com/photo-1490645935967-10de6ba17061?q=80&w=800",
+        "title": "Personal Training Only",
+        "tag": "1 MONTH FROM",
+        "desc": "1:1 personal training sessions, no nutrition plan included.",
+        "price": "₹10,000 / month",
+    },
+    {
+        "title": "Personal Training + Nutrition",
+        "tag": "1 MONTH FROM",
+        "desc": "The full package — 1:1 training and a custom nutrition plan together.",
+        "price": "₹15,000 / month",
+    },
+]
+
+# Package pricing table — plan: {months: (price, savings)}
+PACKAGE_PRICING = [
+    {
+        "name": "Nutrition Only",
+        "1": ("₹5,000", None),
+        "2": ("₹9,500", "save ₹500"),
+        "3": ("₹13,500", "save ₹1,500"),
+        "6": ("₹25,000", "save ₹5,000"),
+    },
+    {
+        "name": "Fitness (Group Classes) Only",
+        "1": ("₹4,000", None),
+        "2": ("₹7,500", "save ₹500"),
+        "3": ("₹10,500", "save ₹1,500"),
+        "6": ("₹20,000", "save ₹4,000"),
+    },
+    {
+        "name": "Nutrition + Fitness",
+        "1": ("₹8,000", None),
+        "2": ("₹15,000", "save ₹1,000"),
+        "3": ("₹22,000", "save ₹2,000"),
+        "6": ("₹42,000", "save ₹6,000"),
+    },
+    {
+        "name": "Personal Training Only",
+        "1": ("₹10,000", None),
+        "2": ("₹18,500", "save ₹1,500"),
+        "3": ("₹27,000", "save ₹3,000"),
+        "6": ("₹52,000", "save ₹8,000"),
+    },
+    {
+        "name": "Personal Training + Nutrition",
+        "1": ("₹15,000", None),
+        "2": ("₹28,000", "save ₹2,000"),
+        "3": ("₹41,000", "save ₹4,000"),
+        "6": ("₹78,000", "save ₹12,000"),
     },
 ]
 
@@ -223,7 +264,7 @@ st.markdown(
             no crash diets, no guesswork.
         </div>
         <div class="pill-row">
-            <a class="pill-btn pill-btn-solid" href="#book">Book a Consultation — ₹300/30min</a>
+            <a class="pill-btn pill-btn-solid" href="#book">Book a Consultation — ₹200/30min</a>
             <a class="pill-btn" href="{INSTAGRAM_URL}" target="_blank">📸 Instagram</a>
             <a class="pill-btn" href="{YOUTUBE_URL}" target="_blank">▶️ YouTube</a>
         </div>
@@ -330,9 +371,43 @@ for i, service in enumerate(SERVICES):
             unsafe_allow_html=True,
         )
 
+# ---- Package pricing table ----
+st.markdown('<div class="eyebrow" style="margin-top:40px;">SAVE MORE</div><div class="section-title" style="font-size:1.6rem;">Package Pricing — the longer you commit, the more you save</div>', unsafe_allow_html=True)
+
+table_rows = ""
+for plan in PACKAGE_PRICING:
+    cells = ""
+    for month in ["1", "2", "3", "6"]:
+        price, savings = plan[month]
+        savings_html = f'<br><span style="color:#D6182B; font-size:0.72rem; font-weight:600;">{savings}</span>' if savings else ""
+        cells += f'<td style="padding:14px 12px; text-align:center; color:#1A1A1A;">{price}{savings_html}</td>'
+    table_rows += f'<tr style="border-bottom:1px solid #EEEEEE;"><td style="padding:14px 12px; font-weight:600; color:#1A1A1A;">{plan["name"]}</td>{cells}</tr>'
+
 st.markdown(
-    f'<div style="text-align:center; margin-top: 10px;">'
-    f'<a class="pill-btn pill-btn-solid" href="{PAYMENT_LINK}" target="_blank">💳 Pay & Book a Service</a>'
+    f"""
+    <div class="white-card" style="padding: 8px; overflow-x:auto;">
+        <table style="width:100%; border-collapse:collapse; font-size:0.85rem;">
+            <thead>
+                <tr style="background:#D6182B;">
+                    <th style="padding:14px 12px; text-align:left; color:#fff; border-radius:12px 0 0 0;">PLAN</th>
+                    <th style="padding:14px 12px; color:#fff;">1 MONTH</th>
+                    <th style="padding:14px 12px; color:#fff;">2 MONTHS</th>
+                    <th style="padding:14px 12px; color:#fff;">3 MONTHS</th>
+                    <th style="padding:14px 12px; color:#fff; border-radius:0 12px 0 0;">6 MONTHS</th>
+                </tr>
+            </thead>
+            <tbody>
+                {table_rows}
+            </tbody>
+        </table>
+    </div>
+    """,
+    unsafe_allow_html=True,
+)
+
+st.markdown(
+    f'<div style="text-align:center; margin-top: 24px;">'
+    f'<a class="pill-btn pill-btn-solid" href="{PAYMENT_LINK}" target="_blank">💳 Pay & Book a Plan</a>'
     f"</div>",
     unsafe_allow_html=True,
 )
@@ -360,7 +435,7 @@ for col, t in zip(test_cols, TESTIMONIALS):
 st.markdown('<div id="book"></div>', unsafe_allow_html=True)
 st.markdown('<div class="eyebrow">GET STARTED</div><div class="section-title">Book a Consultation</div>', unsafe_allow_html=True)
 st.markdown(
-    '<div style="color:#FFFFFFDD; margin-bottom: 18px;">A 30-minute 1:1 call to talk through your goals — ₹300, pick a slot below.</div>',
+    '<div style="color:#FFFFFFDD; margin-bottom: 18px;">A 30-minute 1:1 call to talk through your goals — ₹200, pick a slot below.</div>',
     unsafe_allow_html=True,
 )
 components.iframe(CALENDLY_URL, height=650, scrolling=True)
