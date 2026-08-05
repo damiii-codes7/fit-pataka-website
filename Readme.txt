@@ -18,12 +18,12 @@ At the top of the file, under `CONFIG`:
   (easiest: upload photos to the repo in an `/assets` folder and point to
   `"assets/hero.jpg"` instead of a URL)
 
-## 2. Set up Calendly (free plan works)
+## 2. Calendly
 
-1. Sign up at calendly.com with her email
-2. Create an event type: "Free Mini Consultation" — 15 min
-3. Copy the event link (e.g. `https://calendly.com/fitpataka/consultation`)
-4. Paste it into `CALENDLY_URL` in `app.py`
+Already set — `CALENDLY_URL` points to her real page: `https://calendly.com/fitpataka`
+It's a 30-minute consultation at ₹200, booked directly through Calendly (payment
+is collected there if she's connected a payment method in Calendly, otherwise
+via the site's separate `PAYMENT_LINK`).
 
 ## 3. Set up the payment link
 
