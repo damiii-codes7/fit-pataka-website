@@ -9,10 +9,10 @@ HERO_LINE_1 = "Building a body where"
 HERO_LINE_2 = "strength, confidence & health are the norm."
 FOLLOWERS = "34K+"
 INSTAGRAM_URL = "https://www.instagram.com/fit.pataka/"
-YOUTUBE_URL = "https://www.youtube.com/@FITPATAKA-ns95"  # update with her real channel URL
-CALENDLY_URL = "https://calendly.com/fitpataka/consultation"  # replace with her real Calendly link
+YOUTUBE_URL = "https://www.youtube.com/@fitpataka-ns95"
+CALENDLY_URL = "https://calendly.com/fitpataka"  # her real Calendly link
 PAYMENT_LINK = "https://razorpay.me/@fitpataka"  # replace with her real payment link
-WHATSAPP_NUMBER = "917338806821"  # replace with her number, no + or spaces
+WHATSAPP_NUMBER = "917338806821"
 
 HERO_IMAGE = "https://images.unsplash.com/photo-1518611012118-696072aa579a?q=80&w=1600"
 ABOUT_IMAGE = "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=900"
@@ -54,10 +54,22 @@ TESTIMONIALS = [
     {"stat": "16", "unit": "weeks", "quote": "The check-ins kept me accountable — best money I've spent on myself."},
 ]
 
-YOUTUBE_VIDEO_IDS = [
-    # Add real YouTube video IDs here (the part after v= in the URL)
-    "dQw4w9WgXcQ",
+# Add real YouTube video links here — thumbnails + embeds are pulled automatically
+YOUTUBE_VIDEOS = [
+    "https://youtu.be/Uw3py4sNgKY",
+    "https://youtu.be/xO6vExuYEpg",
+    "https://youtu.be/4rY6jifLF28",
 ]
+
+# ─────────────────────────────────────────────────────────
+# HELPERS
+# ─────────────────────────────────────────────────────────
+def get_youtube_id(url: str) -> str:
+    if "watch?v=" in url:
+        return url.split("watch?v=")[1].split("&")[0]
+    if "youtu.be/" in url:
+        return url.split("youtu.be/")[1].split("?")[0]
+    return url
 
 # ─────────────────────────────────────────────────────────
 # PAGE SETUP
@@ -72,201 +84,127 @@ st.set_page_config(
 st.markdown(
     """
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
 
         #MainMenu {visibility: hidden;}
         footer {visibility: hidden;}
         header {visibility: hidden;}
 
-        html, body, [class*="css"] { font-family: 'Inter', sans-serif; }
+        html, body, [class*="css"] { font-family: 'Poppins', sans-serif; }
 
-        .stApp { background-color: #000000; }
+        .stApp { background-color: #D6182B; }
         .block-container {padding-top: 2.5rem; padding-bottom: 4rem; max-width: 1180px;}
 
         /* ---- Hero ---- */
-        .hero-wrap {
-            text-align: center;
-            padding: 2rem 0 1rem 0;
-        }
+        .hero-wrap { text-align: center; padding: 2rem 0 1rem 0; }
         .hero-eyebrow {
-            font-size: 0.8rem;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: #FFFFFF66;
-            font-weight: 600;
-            margin-bottom: 14px;
+            font-size: 0.8rem; letter-spacing: 3px; text-transform: uppercase;
+            color: #FFFFFFB3; font-weight: 600; margin-bottom: 14px;
         }
         .hero-title {
             font-size: clamp(2.4rem, 6vw, 4.4rem);
-            font-weight: 700;
-            line-height: 1.05;
-            letter-spacing: -2px;
-            background: linear-gradient(101deg, #FFF 0%, rgba(255,255,255,0.55) 100%);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin: 0 auto;
-            max-width: 900px;
+            font-weight: 700; line-height: 1.08; letter-spacing: -1px;
+            color: #FFFFFF; margin: 0 auto; max-width: 900px;
         }
         .hero-sub {
-            color: #FFFFFF99;
-            font-size: 1.05rem;
-            font-weight: 300;
-            max-width: 560px;
-            margin: 22px auto 0 auto;
+            color: #FFFFFFDD; font-size: 1.05rem; font-weight: 300;
+            max-width: 560px; margin: 22px auto 0 auto;
         }
 
         /* ---- Pill buttons ---- */
         .pill-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 12px 26px;
-            border-radius: 999px;
-            border: 1px solid #FFFFFF3D;
-            background: linear-gradient(180deg, #FFFFFF14 0%, #FFFFFF00 100%);
-            backdrop-filter: blur(6px);
-            color: #fff !important;
-            font-size: 0.9rem;
-            font-weight: 500;
-            text-decoration: none !important;
-            transition: border-color 0.2s ease;
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: 12px 26px; border-radius: 999px;
+            border: 1.5px solid #FFFFFF; background: transparent;
+            color: #fff !important; font-size: 0.9rem; font-weight: 600;
+            text-decoration: none !important; transition: all 0.2s ease;
         }
-        .pill-btn:hover { border-color: #FFFFFF8A; }
-        .pill-btn-solid {
-            background: #FFFFFF;
-            color: #000 !important;
-            border: none;
-            font-weight: 600;
-        }
+        .pill-btn:hover { background: #FFFFFF1A; }
+        .pill-btn-solid { background: #FFFFFF; color: #D6182B !important; border: none; }
         .pill-row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 28px; }
 
         /* ---- Stats strip ---- */
         .stats-strip {
-            display: flex;
-            justify-content: center;
-            gap: 60px;
-            flex-wrap: wrap;
-            margin: 56px 0 8px 0;
-            padding: 28px 0;
-            border-top: 1px solid #FFFFFF14;
-            border-bottom: 1px solid #FFFFFF14;
+            display: flex; justify-content: center; gap: 60px; flex-wrap: wrap;
+            margin: 56px 0 8px 0; padding: 28px 0;
+            border-top: 1px solid #FFFFFF33; border-bottom: 1px solid #FFFFFF33;
         }
-        .stat-num {
-            font-size: 2.2rem;
-            font-weight: 700;
-            color: #fff;
-            letter-spacing: -1px;
-        }
-        .stat-label {
-            font-size: 0.78rem;
-            color: #FFFFFF66;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            margin-top: 2px;
-        }
+        .stat-num { font-size: 2.2rem; font-weight: 700; color: #fff; letter-spacing: -1px; }
+        .stat-label { font-size: 0.78rem; color: #FFFFFFB3; text-transform: uppercase; letter-spacing: 1.5px; margin-top: 2px; }
 
         /* ---- Section headers ---- */
         .eyebrow {
-            font-size: 0.78rem;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: #FFFFFF66;
-            font-weight: 600;
-            margin-top: 70px;
-            margin-bottom: 6px;
+            font-size: 0.78rem; letter-spacing: 3px; text-transform: uppercase;
+            color: #FFFFFFB3; font-weight: 600; margin-top: 70px; margin-bottom: 6px;
         }
         .section-title {
-            font-size: clamp(1.8rem, 3.5vw, 2.6rem);
-            font-weight: 600;
-            letter-spacing: -1px;
-            color: #FFFFFFCC;
-            margin-bottom: 24px;
+            font-size: clamp(1.8rem, 3.5vw, 2.6rem); font-weight: 600;
+            letter-spacing: -1px; color: #FFFFFF; margin-bottom: 24px;
         }
 
-        /* ---- Rounded image cards (ecosystem style) ---- */
+        /* ---- White cards (services, testimonials) ---- */
+        .white-card {
+            background: #FFFFFF; border-radius: 20px; padding: 24px;
+            color: #1A1A1A;
+        }
+        .service-tag {
+            font-size: 0.68rem; letter-spacing: 2px; text-transform: uppercase;
+            color: #D6182B; font-weight: 700; margin-bottom: 8px;
+        }
+        .service-title { font-size: 1.35rem; font-weight: 700; color: #1A1A1A; margin-bottom: 6px; letter-spacing: -0.3px; }
+        .service-desc { font-size: 0.88rem; color: #4A4A4A; margin-bottom: 14px; line-height: 1.45; }
+        .service-price { font-size: 1rem; font-weight: 700; color: #D6182B; }
+
+        .test-card { background: #FFFFFF; border-radius: 20px; padding: 26px; height: 100%; color: #1A1A1A; }
+        .test-stat { font-size: 2.4rem; font-weight: 700; color: #D6182B; letter-spacing: -1px; }
+        .test-unit { font-size: 0.95rem; color: #6A6A6A; margin-left: 4px; }
+        .test-quote { color: #333333; font-size: 0.92rem; margin-top: 14px; line-height: 1.5; }
+
+        /* ---- Photo cards (image-based) ---- */
         .img-card {
-            position: relative;
-            border-radius: 24px;
-            overflow: hidden;
-            border: 1px solid #343839;
-            height: 380px;
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            align-items: flex-end;
-            padding: 24px;
+            position: relative; border-radius: 20px; overflow: hidden;
+            height: 340px; background-size: cover; background-position: center;
+            display: flex; align-items: flex-end; padding: 20px;
+            border: 3px solid #FFFFFF;
         }
         .img-card::before {
-            content: "";
-            position: absolute; inset: 0;
-            background: linear-gradient(180deg, rgba(0,0,0,0) 30%, rgba(0,0,0,0.85) 100%);
+            content: ""; position: absolute; inset: 0;
+            background: linear-gradient(180deg, rgba(0,0,0,0) 40%, rgba(0,0,0,0.75) 100%);
         }
         .img-card-content { position: relative; z-index: 2; width: 100%; }
-        .img-card-tag {
-            font-size: 0.68rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: #FFFFFFB3;
-            font-weight: 600;
-            margin-bottom: 8px;
-        }
-        .img-card-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #fff;
-            margin-bottom: 6px;
-            letter-spacing: -0.5px;
-        }
-        .img-card-desc {
-            font-size: 0.85rem;
-            color: #FFFFFFCC;
-            margin-bottom: 12px;
-            line-height: 1.4;
-        }
-        .img-card-price {
-            font-size: 0.95rem;
-            font-weight: 700;
-            color: #fff;
-        }
+        .img-card-title { font-size: 1.2rem; font-weight: 700; color: #fff; }
 
-        /* ---- Testimonial cards ---- */
-        .test-card {
-            border-radius: 20px;
-            border: 1px solid #FFFFFF1A;
-            background: #0A0A0A;
-            padding: 26px;
-            height: 100%;
+        /* ---- YouTube thumbnails ---- */
+        .yt-thumb-wrap {
+            position: relative; border-radius: 16px; overflow: hidden;
+            border: 3px solid #FFFFFF; display: block; text-decoration: none !important;
         }
-        .test-stat { font-size: 2.4rem; font-weight: 700; color: #fff; letter-spacing: -1px; }
-        .test-unit { font-size: 0.95rem; color: #FFFFFF80; margin-left: 4px; }
-        .test-quote { color: #FFFFFFB3; font-size: 0.92rem; margin-top: 14px; line-height: 1.5; }
+        .yt-thumb-wrap img { width: 100%; display: block; }
+        .yt-play-icon {
+            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            width: 54px; height: 54px; border-radius: 50%;
+            background: rgba(214, 24, 43, 0.9);
+            display: flex; align-items: center; justify-content: center;
+        }
+        .yt-play-icon::after {
+            content: ""; width: 0; height: 0;
+            border-top: 10px solid transparent; border-bottom: 10px solid transparent;
+            border-left: 16px solid #fff; margin-left: 4px;
+        }
 
         /* ---- About ---- */
-        .about-img {
-            border-radius: 24px;
-            border: 1px solid #343839;
-            overflow: hidden;
-        }
-        .about-text {
-            color: #FFFFFFB3;
-            font-size: 1rem;
-            line-height: 1.7;
-        }
+        .about-img { border-radius: 20px; overflow: hidden; border: 3px solid #FFFFFF; }
+        .about-text { color: #FFFFFFEE; font-size: 1rem; line-height: 1.7; }
         .about-text b { color: #fff; }
 
         /* ---- Footer ---- */
         .footer-wrap {
-            margin-top: 90px;
-            padding-top: 30px;
-            border-top: 1px solid #FFFFFF14;
-            text-align: center;
-            color: #FFFFFF66;
-            font-size: 0.85rem;
+            margin-top: 90px; padding-top: 30px; border-top: 1px solid #FFFFFF33;
+            text-align: center; color: #FFFFFFB3; font-size: 0.85rem;
         }
 
         a { color: inherit; }
-        iframe { border-radius: 20px; border: 1px solid #FFFFFF1A !important; }
+        iframe { border-radius: 16px; border: 3px solid #FFFFFF !important; }
     </style>
     """,
     unsafe_allow_html=True,
@@ -285,7 +223,7 @@ st.markdown(
             no crash diets, no guesswork.
         </div>
         <div class="pill-row">
-            <a class="pill-btn pill-btn-solid" href="#book">Book a Free Consultation</a>
+            <a class="pill-btn pill-btn-solid" href="#book">Book a Consultation — ₹300/30min</a>
             <a class="pill-btn" href="{INSTAGRAM_URL}" target="_blank">📸 Instagram</a>
             <a class="pill-btn" href="{YOUTUBE_URL}" target="_blank">▶️ YouTube</a>
         </div>
@@ -296,10 +234,9 @@ st.markdown(
 
 st.markdown(
     f"""
-    <div class="img-card" style="height: 440px; background-image: url('{HERO_IMAGE}');">
+    <div class="img-card" style="height: 420px; background-image: url('{HERO_IMAGE}');">
         <div class="img-card-content">
-            <div class="img-card-tag">WOMEN'S HEALTH · WEIGHT LOSS · WEIGHT GAIN</div>
-            <div class="img-card-title" style="font-size: 1.9rem;">Real transformations, built to last</div>
+            <div class="img-card-title" style="font-size: 1.7rem;">Real transformations, built to last</div>
         </div>
     </div>
     """,
@@ -355,15 +292,24 @@ with about_col2:
     )
 
 # ─────────────────────────────────────────────────────────
-# VIDEOS
+# VIDEOS (thumbnail grid, click to open on YouTube)
 # ─────────────────────────────────────────────────────────
 st.markdown('<div class="eyebrow">ON YOUTUBE</div><div class="section-title">Videos</div>', unsafe_allow_html=True)
-if YOUTUBE_VIDEO_IDS:
-    video_cols = st.columns(len(YOUTUBE_VIDEO_IDS))
-    for col, vid in zip(video_cols, YOUTUBE_VIDEO_IDS):
-        with col:
-            st.video(f"https://www.youtube.com/watch?v={vid}")
-st.markdown(f'<a class="pill-btn" href="{YOUTUBE_URL}" target="_blank">See more on YouTube →</a>', unsafe_allow_html=True)
+if YOUTUBE_VIDEOS:
+    video_cols = st.columns(len(YOUTUBE_VIDEOS) if len(YOUTUBE_VIDEOS) <= 3 else 3)
+    for i, video_url in enumerate(YOUTUBE_VIDEOS):
+        vid = get_youtube_id(video_url)
+        with video_cols[i % len(video_cols)]:
+            st.markdown(
+                f"""
+                <a class="yt-thumb-wrap" href="{video_url}" target="_blank">
+                    <img src="https://img.youtube.com/vi/{vid}/hqdefault.jpg">
+                    <div class="yt-play-icon"></div>
+                </a>
+                """,
+                unsafe_allow_html=True,
+            )
+st.markdown(f'<div style="margin-top:16px;"><a class="pill-btn" href="{YOUTUBE_URL}" target="_blank">See more on YouTube →</a></div>', unsafe_allow_html=True)
 
 # ─────────────────────────────────────────────────────────
 # SERVICES
@@ -374,13 +320,11 @@ for i, service in enumerate(SERVICES):
     with service_cols[i % 2]:
         st.markdown(
             f"""
-            <div class="img-card" style="background-image: url('{service['image']}'); margin-bottom: 24px;">
-                <div class="img-card-content">
-                    <div class="img-card-tag">{service['tag']}</div>
-                    <div class="img-card-title">{service['title']}</div>
-                    <div class="img-card-desc">{service['desc']}</div>
-                    <div class="img-card-price">{service['price']}</div>
-                </div>
+            <div class="white-card" style="margin-bottom: 20px;">
+                <div class="service-tag">{service['tag']}</div>
+                <div class="service-title">{service['title']}</div>
+                <div class="service-desc">{service['desc']}</div>
+                <div class="service-price">{service['price']}</div>
             </div>
             """,
             unsafe_allow_html=True,
@@ -414,9 +358,9 @@ for col, t in zip(test_cols, TESTIMONIALS):
 # MINI CONSULTATION BOOKING (Calendly embed)
 # ─────────────────────────────────────────────────────────
 st.markdown('<div id="book"></div>', unsafe_allow_html=True)
-st.markdown('<div class="eyebrow">GET STARTED</div><div class="section-title">Book a Free Mini Consultation</div>', unsafe_allow_html=True)
+st.markdown('<div class="eyebrow">GET STARTED</div><div class="section-title">Book a Consultation</div>', unsafe_allow_html=True)
 st.markdown(
-    '<div style="color:#FFFFFF99; margin-bottom: 18px;">Pick a slot below for a free 15-minute call to talk about your goals and whether we\'re a good fit to work together.</div>',
+    '<div style="color:#FFFFFFDD; margin-bottom: 18px;">A 30-minute 1:1 call to talk through your goals — ₹300, pick a slot below.</div>',
     unsafe_allow_html=True,
 )
 components.iframe(CALENDLY_URL, height=650, scrolling=True)
