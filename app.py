@@ -7,7 +7,7 @@ import streamlit.components.v1 as components
 BRAND_NAME = "FIT PATAKA"
 HERO_LINE_1 = "Building a body where"
 HERO_LINE_2 = "strength, confidence & health are the norm."
-FOLLOWERS = "35K+"
+FOLLOWERS = "34K+"
 INSTAGRAM_URL = "https://www.instagram.com/fit.pataka/"
 YOUTUBE_URL = "https://www.youtube.com/@fitpataka-ns95"
 CALENDLY_URL = "https://calendly.com/fitpataka"  # her real Calendly link
@@ -451,7 +451,7 @@ st.markdown(
             <a class="pill-btn" href="{YOUTUBE_URL}" target="_blank">▶️ YouTube</a>
             <a class="pill-btn" href="https://wa.me/{WHATSAPP_NUMBER}" target="_blank">💬 WhatsApp</a>
         </div>
-        © {BRAND_NAME} — Built for Fitness and Transformation.
+        © {BRAND_NAME} — Website built with Streamlit.
     </div>
     """,
     unsafe_allow_html=True,
