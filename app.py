@@ -14,7 +14,7 @@ CALENDLY_URL = "https://calendly.com/fitpataka"  # her real Calendly link
 PAYMENT_LINK = "https://razorpay.me/@fitpataka"  # replace with her real payment link
 WHATSAPP_NUMBER = "917338806821"
 
-HERO_IMAGE = "https://raw.githubusercontent.com/damiii-codes7/fit-pataka-website/main/hero.jpg"
+HERO_IMAGE = "https://raw.githubusercontent.com/damiii-codes7/fit-pataka-website/main/hero.png"
 ABOUT_IMAGE = "https://raw.githubusercontent.com/damiii-codes7/fit-pataka-website/main/about.jpg"
 GALLERY_IMAGE = "https://raw.githubusercontent.com/damiii-codes7/fit-pataka-website/main/gallery1.jpg"
 
