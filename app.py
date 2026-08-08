@@ -6,7 +6,7 @@ import streamlit.components.v1 as components
 # ─────────────────────────────────────────────────────────
 BRAND_NAME = "FIT PATAKA"
 HERO_LINE_1 = "Building a body where"
-HERO_LINE_2 = "Strength, Confidence & Health are the norm here."
+HERO_LINE_2 = "Strength, Confidence & Health are the norm."
 FOLLOWERS = "35K+"
 INSTAGRAM_URL = "https://www.instagram.com/fit.pataka/"
 YOUTUBE_URL = "https://www.youtube.com/@fitpataka-ns95"
@@ -320,7 +320,6 @@ st.markdown('<div class="eyebrow">THE COACH</div><div class="section-title">Abou
 about_col1, about_col2 = st.columns([1, 1.4])
 with about_col1:
     st.markdown(f'<div class="about-img"><img src="{ABOUT_IMAGE}" style="width:100%; display:block;"></div>', unsafe_allow_html=True)
-    st.markdown(f'<div class="about-img" style="margin-top:16px;"><img src="{GALLERY_IMAGE}" style="width:100%; display:block;"></div>', unsafe_allow_html=True)
 with about_col2:
     st.markdown(
         """
@@ -420,23 +419,6 @@ st.markdown(
 )
 
 # ─────────────────────────────────────────────────────────
-# TESTIMONIALS
-# ─────────────────────────────────────────────────────────
-st.markdown('<div class="eyebrow">RESULTS</div><div class="section-title">Client Testimonials</div>', unsafe_allow_html=True)
-test_cols = st.columns(len(TESTIMONIALS))
-for col, t in zip(test_cols, TESTIMONIALS):
-    with col:
-        st.markdown(
-            f"""
-            <div class="test-card">
-                <span class="test-stat">{t['stat']}</span><span class="test-unit">{t['unit']}</span>
-                <div class="test-quote">"{t['quote']}"</div>
-            </div>
-            """,
-            unsafe_allow_html=True,
-        )
-
-# ─────────────────────────────────────────────────────────
 # MINI CONSULTATION BOOKING (Calendly embed)
 # ─────────────────────────────────────────────────────────
 st.markdown('<div id="book"></div>', unsafe_allow_html=True)
@@ -458,7 +440,7 @@ st.markdown(
             <a class="pill-btn" href="{YOUTUBE_URL}" target="_blank">YouTube</a>
             <a class="pill-btn" href="https://wa.me/{WHATSAPP_NUMBER}" target="_blank">💬 WhatsApp</a>
         </div>
-        © {BRAND_NAME} — Website built with Streamlit.
+        © {BRAND_NAME} — Built for Fitness.
     </div>
     """,
     unsafe_allow_html=True,
