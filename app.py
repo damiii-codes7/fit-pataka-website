@@ -6,17 +6,16 @@ import streamlit.components.v1 as components
 # ─────────────────────────────────────────────────────────
 BRAND_NAME = "FIT PATAKA"
 HERO_LINE_1 = "Building a body where"
-HERO_LINE_2 = "strength, confidence & health are the norm."
-FOLLOWERS = "34K+"
+HERO_LINE_2 = "Strength, Confidence & Health are the norm here."
+FOLLOWERS = "35K+"
 INSTAGRAM_URL = "https://www.instagram.com/fit.pataka/"
 YOUTUBE_URL = "https://www.youtube.com/@fitpataka-ns95"
 CALENDLY_URL = "https://calendly.com/fitpataka"  # her real Calendly link
-PAYMENT_LINK = "https://razorpay.me/@fitpataka"  # replace with her real payment link
-WHATSAPP_NUMBER = "917338806821"
+PAYMENT_LINK = "https://razorpay.me/@sandhyabalaji"  # replace with her real payment link
+WHATSAPP_NUMBER = "+91-7338806821"
 
 HERO_IMAGE = "https://raw.githubusercontent.com/damiii-codes7/fit-pataka-website/main/hero.jpg"
 ABOUT_IMAGE = "https://raw.githubusercontent.com/damiii-codes7/fit-pataka-website/main/about.jpg"
-GALLERY_IMAGE = "https://raw.githubusercontent.com/damiii-codes7/fit-pataka-website/main/gallery1.jpg"
 
 SERVICES = [
     {
