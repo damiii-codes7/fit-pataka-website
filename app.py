@@ -264,7 +264,7 @@ st.markdown(
             no crash diets, no guesswork.
         </div>
         <div class="pill-row">
-            <a class="pill-btn pill-btn-solid" href="#book">Book a Consultation — ₹200/30min</a>
+            <a class="pill-btn pill-btn-solid" href="#book">Book a Consultation</a>
             <a class="pill-btn" href="{INSTAGRAM_URL}" target="_blank">Instagram</a>
             <a class="pill-btn" href="{YOUTUBE_URL}" target="_blank">YouTube</a>
         </div>
