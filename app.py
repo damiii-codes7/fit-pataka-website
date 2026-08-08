@@ -438,7 +438,7 @@ st.markdown(
         <div class="pill-row" style="margin-bottom: 18px;">
             <a class="pill-btn" href="{INSTAGRAM_URL}" target="_blank">Instagram</a>
             <a class="pill-btn" href="{YOUTUBE_URL}" target="_blank">YouTube</a>
-            <a class="pill-btn" href="https://wa.me/{WHATSAPP_NUMBER}" target="_blank">💬 WhatsApp</a>
+            <a class="pill-btn" href="https://wa.me/{WHATSAPP_NUMBER}" target="_blank">WhatsApp</a>
         </div>
         © {BRAND_NAME} — Built for Fitness.
     </div>
