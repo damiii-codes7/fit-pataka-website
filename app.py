@@ -14,8 +14,9 @@ CALENDLY_URL = "https://calendly.com/fitpataka"  # her real Calendly link
 PAYMENT_LINK = "https://razorpay.me/@fitpataka"  # replace with her real payment link
 WHATSAPP_NUMBER = "917338806821"
 
-HERO_IMAGE = "https://images.unsplash.com/photo-1518611012118-696072aa579a?q=80&w=1600"
-ABOUT_IMAGE = "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=900"
+HERO_IMAGE = "https://raw.githubusercontent.com/damiii-codes7/fit-pataka-website/main/assets/hero.jpg"
+ABOUT_IMAGE = "https://raw.githubusercontent.com/damiii-codes7/fit-pataka-website/main/assets/about.jpg"
+GALLERY_IMAGE = "https://raw.githubusercontent.com/damiii-codes7/fit-pataka-website/main/assets/gallery1.jpg"
 
 SERVICES = [
     {
@@ -125,16 +126,22 @@ st.set_page_config(
 st.markdown(
     """
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+        html, body, [class*="css"] { font-family: Georgia, 'Times New Roman', serif; }
 
         #MainMenu {visibility: hidden;}
         footer {visibility: hidden;}
         header {visibility: hidden;}
 
-        html, body, [class*="css"] { font-family: 'Poppins', sans-serif; }
-
         .stApp { background-color: #D6182B; }
         .block-container {padding-top: 2.5rem; padding-bottom: 4rem; max-width: 1180px;}
+
+        /* ---- Global center alignment ---- */
+        .block-container, .about-text, .service-desc, .test-quote,
+        .hero-sub, .section-title, .eyebrow, .white-card, table, th, td {
+            text-align: center !important;
+        }
+        [data-testid="stVerticalBlock"], [data-testid="column"] { text-align: center; }
+        [data-testid="stImage"] { display: flex; justify-content: center; }
 
         /* ---- Hero ---- */
         .hero-wrap { text-align: center; padding: 2rem 0 1rem 0; }
@@ -265,8 +272,8 @@ st.markdown(
         </div>
         <div class="pill-row">
             <a class="pill-btn pill-btn-solid" href="#book">Book a Consultation — ₹200/30min</a>
-            <a class="pill-btn" href="{INSTAGRAM_URL}" target="_blank">📸 Instagram</a>
-            <a class="pill-btn" href="{YOUTUBE_URL}" target="_blank">▶️ YouTube</a>
+            <a class="pill-btn" href="{INSTAGRAM_URL}" target="_blank">Instagram</a>
+            <a class="pill-btn" href="{YOUTUBE_URL}" target="_blank">YouTube</a>
         </div>
     </div>
     """,
@@ -314,6 +321,7 @@ st.markdown('<div class="eyebrow">THE COACH</div><div class="section-title">Abou
 about_col1, about_col2 = st.columns([1, 1.4])
 with about_col1:
     st.markdown(f'<div class="about-img"><img src="{ABOUT_IMAGE}" style="width:100%; display:block;"></div>', unsafe_allow_html=True)
+    st.markdown(f'<div class="about-img" style="margin-top:16px;"><img src="{GALLERY_IMAGE}" style="width:100%; display:block;"></div>', unsafe_allow_html=True)
 with about_col2:
     st.markdown(
         """
@@ -447,8 +455,8 @@ st.markdown(
     f"""
     <div class="footer-wrap">
         <div class="pill-row" style="margin-bottom: 18px;">
-            <a class="pill-btn" href="{INSTAGRAM_URL}" target="_blank">📸 Instagram</a>
-            <a class="pill-btn" href="{YOUTUBE_URL}" target="_blank">▶️ YouTube</a>
+            <a class="pill-btn" href="{INSTAGRAM_URL}" target="_blank">Instagram</a>
+            <a class="pill-btn" href="{YOUTUBE_URL}" target="_blank">YouTube</a>
             <a class="pill-btn" href="https://wa.me/{WHATSAPP_NUMBER}" target="_blank">💬 WhatsApp</a>
         </div>
         © {BRAND_NAME} — Website built with Streamlit.
