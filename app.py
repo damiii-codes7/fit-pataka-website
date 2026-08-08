@@ -451,7 +451,7 @@ st.markdown(
             <a class="pill-btn" href="{YOUTUBE_URL}" target="_blank">YouTube</a>
             <a class="pill-btn" href="https://wa.me/{WHATSAPP_NUMBER}" target="_blank">WhatsApp</a>
         </div>
-        © {BRAND_NAME} — Website built with Streamlit.
+        © {BRAND_NAME} — Built For Fitness and Nutrition with love and care.
     </div>
     """,
     unsafe_allow_html=True,
