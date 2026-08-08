@@ -89,12 +89,6 @@ PACKAGE_PRICING = [
     },
 ]
 
-TESTIMONIALS = [
-    {"stat": "8", "unit": "kg lost", "quote": "Lost it in 3 months without crash dieting. Actually sustainable."},
-    {"stat": "12", "unit": "kg gained", "quote": "First time gaining weight the healthy way instead of just eating junk."},
-    {"stat": "16", "unit": "weeks", "quote": "The check-ins kept me accountable — best money I've spent on myself."},
-]
-
 # Add real YouTube video links here — thumbnails + embeds are pulled automatically
 YOUTUBE_VIDEOS = [
     "https://youtu.be/Uw3py4sNgKY",
@@ -324,15 +318,21 @@ with about_col2:
     st.markdown(
         """
         <div class="about-text">
-        Hey, I'm the face behind <b>Fit Pataka</b> 👋 — I help women lose and gain weight
-        the right way, without crash diets or unsustainable routines.
+        Hey, I'm the face behind <b>Fit Pataka</b> 👋 — your girl-next-door fat loss coach.
+        PCOS, bloating, belly fat — I fix the <i>why</i>, not just the weight. No starving here,
+        food is love, not the enemy.
         <br><br>
-        Over the last few years I've built a community of <b>34,000+ women</b> on Instagram
-        who are learning that fitness isn't about punishment — it's about consistency,
-        the right nutrition, and training that fits your life.
+        Over the last few years I've built a community of <b>34,000+ women</b> on Instagram and a
+        Tamil-language YouTube channel — easy home workouts and nutrition tips, made simple for
+        every woman, in the language you're most comfortable in.
         <br><br>
-        My focus is 100% on women's health: weight loss, healthy weight gain, and
-        building habits that actually stick.
+        This is a safe space for women done with crash diets and toxic fitness culture. Here,
+        fitness is power, not punishment. Strength, not shrinking. Self-respect, not comparison.
+        Busy, bloated, burnt out, or just beginning — you belong here.
+        <br><br>
+        My focus is 100% on women's health: weight loss, healthy weight gain, managing
+        PCOS/thyroid/hormonal health, and building habits that actually stick — so you can feel
+        confident in your own skin and stay strong at 60 and beyond.
         </div>
         """,
         unsafe_allow_html=True,
@@ -362,20 +362,31 @@ st.markdown(f'<div style="margin-top:16px;"><a class="pill-btn" href="{YOUTUBE_U
 # SERVICES
 # ─────────────────────────────────────────────────────────
 st.markdown('<div class="eyebrow">WORK WITH ME</div><div class="section-title">Services</div>', unsafe_allow_html=True)
-service_cols = st.columns(2)
-for i, service in enumerate(SERVICES):
-    with service_cols[i % 2]:
-        st.markdown(
-            f"""
-            <div class="white-card" style="margin-bottom: 20px;">
-                <div class="service-tag">{service['tag']}</div>
-                <div class="service-title">{service['title']}</div>
-                <div class="service-desc">{service['desc']}</div>
-                <div class="service-price">{service['price']}</div>
-            </div>
-            """,
-            unsafe_allow_html=True,
-        )
+def render_service_card(service):
+    st.markdown(
+        f"""
+        <div class="white-card" style="margin-bottom: 20px;">
+            <div class="service-tag">{service['tag']}</div>
+            <div class="service-title">{service['title']}</div>
+            <div class="service-desc">{service['desc']}</div>
+            <div class="service-price">{service['price']}</div>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+pair_count = len(SERVICES) // 2
+for row in range(pair_count):
+    left, right = st.columns(2)
+    with left:
+        render_service_card(SERVICES[row * 2])
+    with right:
+        render_service_card(SERVICES[row * 2 + 1])
+
+if len(SERVICES) % 2 == 1:
+    _, center, _ = st.columns([1, 2, 1])
+    with center:
+        render_service_card(SERVICES[-1])
 
 # ---- Package pricing table ----
 st.markdown('<div class="eyebrow" style="margin-top:40px;">SAVE MORE</div><div class="section-title" style="font-size:1.6rem;">Package Pricing — the longer you commit, the more you save</div>', unsafe_allow_html=True)
@@ -440,7 +451,7 @@ st.markdown(
             <a class="pill-btn" href="{YOUTUBE_URL}" target="_blank">YouTube</a>
             <a class="pill-btn" href="https://wa.me/{WHATSAPP_NUMBER}" target="_blank">WhatsApp</a>
         </div>
-        © {BRAND_NAME} — Built for Fitness.
+        © {BRAND_NAME} — Website built with Streamlit.
     </div>
     """,
     unsafe_allow_html=True,
