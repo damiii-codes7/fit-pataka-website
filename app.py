@@ -361,7 +361,7 @@ st.markdown(f'<div style="margin-top:16px;"><a class="pill-btn" href="{YOUTUBE_U
 # ─────────────────────────────────────────────────────────
 # SERVICES
 # ─────────────────────────────────────────────────────────
-st.markdown('<div class="eyebrow">WORK WITH ME</div><div class="section-title">Services</div>', unsafe_allow_html=True)
+st.markdown('<div class="eyebrow">WORKOUT WITH ME</div><div class="section-title">Services</div>', unsafe_allow_html=True)
 def render_service_card(service):
     st.markdown(
         f"""
@@ -424,7 +424,7 @@ st.markdown(
 
 st.markdown(
     f'<div style="text-align:center; margin-top: 24px;">'
-    f'<a class="pill-btn pill-btn-solid" href="{PAYMENT_LINK}" target="_blank">💳 Pay & Book a Plan</a>'
+    f'<a class="pill-btn pill-btn-solid" href="{PAYMENT_LINK}" target="_blank">Pay & Book a Plan</a>'
     f"</div>",
     unsafe_allow_html=True,
 )
@@ -435,7 +435,7 @@ st.markdown(
 st.markdown('<div id="book"></div>', unsafe_allow_html=True)
 st.markdown('<div class="eyebrow">GET STARTED</div><div class="section-title">Book a Consultation</div>', unsafe_allow_html=True)
 st.markdown(
-    '<div style="color:#FFFFFFDD; margin-bottom: 18px;">A 30-minute 1:1 call to talk through your goals — ₹200, pick a slot below.</div>',
+'<div style="color:#FFFFFFDD; margin-bottom: 18px; text-align:center;">A 30-minute 1:1 call to talk through your goals — Pick a slot below.</div>',
     unsafe_allow_html=True,
 )
 components.iframe(CALENDLY_URL, height=650, scrolling=True)
