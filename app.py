@@ -318,20 +318,20 @@ with about_col2:
     st.markdown(
         """
         <div class="about-text">
-        Hey, I'm the face behind <b>Fit Pataka</b> 👋 — your girl-next-door fat loss coach.
-        PCOS, bloating, belly fat — I fix the <i>why</i>, not just the weight. No starving here,
+        Hey, I'm the face behind <b>Fit Pataka</b> 👋 your girl-next-door fat loss coach.
+        PCOS, bloating, belly fat, I fix the <i>why</i>, not just the weight. No starving here,
         food is love, not the enemy.
         <br><br>
-        Over the last few years I've built a community of <b>34,000+ women</b> on Instagram and a
-        Tamil-language YouTube channel — easy home workouts and nutrition tips, made simple for
+        Over the last few years I've built a community of <b>36,000+</b> on Instagram and a
+        Tamil-language YouTube channel for easy home workouts and nutrition tips, made simple for
         every woman, in the language you're most comfortable in.
         <br><br>
         This is a safe space for women done with crash diets and toxic fitness culture. Here,
         fitness is power, not punishment. Strength, not shrinking. Self-respect, not comparison.
-        Busy, bloated, burnt out, or just beginning — you belong here.
+        Busy, bloated, burnt out, or just beginning, you belong here.
         <br><br>
         My focus is 100% on women's health: weight loss, healthy weight gain, managing
-        PCOS/thyroid/hormonal health, and building habits that actually stick — so you can feel
+        PCOS/thyroid/hormonal health, and building habits that actually stick, so you can feel
         confident in your own skin and stay strong at 60 and beyond.
         </div>
         """,
