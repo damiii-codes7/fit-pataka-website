@@ -359,7 +359,7 @@ if YOUTUBE_VIDEOS:
                 """,
                 unsafe_allow_html=True,
             )
-st.markdown(f'<div style="margin-top:16px;"><a class="pill-btn" href="{YOUTUBE_URL}" target="_blank">See more on YouTube →</a></div>', unsafe_allow_html=True)
+st.markdown(f'<div style="margin-top:16px; text-align:center;"><a class="pill-btn" href="{YOUTUBE_URL}" target="_blank">See more on YouTube →</a></div>', unsafe_allow_html=True)
 
 # ─────────────────────────────────────────────────────────
 # SERVICES
