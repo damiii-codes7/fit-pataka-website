@@ -6,12 +6,12 @@ import streamlit.components.v1 as components
 # ─────────────────────────────────────────────────────────
 BRAND_NAME = "FIT PATAKA"
 HERO_LINE_1 = "Building a body where"
-HERO_LINE_2 = "Strength, Confidence & Health are the norm."
-FOLLOWERS = "35K+"
+HERO_LINE_2 = "strength, confidence & health are the norm."
+FOLLOWERS = "34K+"
 INSTAGRAM_URL = "https://www.instagram.com/fit.pataka/"
 YOUTUBE_URL = "https://www.youtube.com/@fitpataka-ns95"
 CALENDLY_URL = "https://calendly.com/fitpataka"  # her real Calendly link
-PAYMENT_LINK = "https://razorpay.me/@sandhyabalaji"  # replace with her real payment link
+PAYMENT_LINK = "https://razorpay.me/@fitpataka"  # replace with her real payment link
 WHATSAPP_NUMBER = "917338806821"
 
 HERO_IMAGE = "https://raw.githubusercontent.com/damiii-codes7/fit-pataka-website/main/hero.jpg"
@@ -264,7 +264,7 @@ st.markdown(
             no crash diets, no guesswork.
         </div>
         <div class="pill-row">
-            <a class="pill-btn pill-btn-solid" href="#book">Book a Consultation</a>
+            <a class="pill-btn pill-btn-solid" href="#book">Book a Consultation — ₹200/30min</a>
             <a class="pill-btn" href="{INSTAGRAM_URL}" target="_blank">Instagram</a>
             <a class="pill-btn" href="{YOUTUBE_URL}" target="_blank">YouTube</a>
         </div>
@@ -318,20 +318,20 @@ with about_col2:
     st.markdown(
         """
         <div class="about-text">
-        Hey, I'm the face behind <b>Fit Pataka</b> 👋 your girl-next-door fat loss coach.
-        PCOS, bloating, belly fat, I fix the <i>why</i>, not just the weight. No starving here,
+        Hey, I'm the face behind <b>Fit Pataka</b> 👋 — your girl-next-door fat loss coach.
+        PCOS, bloating, belly fat — I fix the <i>why</i>, not just the weight. No starving here,
         food is love, not the enemy.
         <br><br>
-        Over the last few years I've built a community of <b>36,000+</b> on Instagram and a
-        Tamil-language YouTube channel for easy home workouts and nutrition tips, made simple for
+        Over the last few years I've built a community of <b>34,000+ women</b> on Instagram and a
+        Tamil-language YouTube channel — easy home workouts and nutrition tips, made simple for
         every woman, in the language you're most comfortable in.
         <br><br>
         This is a safe space for women done with crash diets and toxic fitness culture. Here,
         fitness is power, not punishment. Strength, not shrinking. Self-respect, not comparison.
-        Busy, bloated, burnt out, or just beginning, you belong here.
+        Busy, bloated, burnt out, or just beginning — you belong here.
         <br><br>
         My focus is 100% on women's health: weight loss, healthy weight gain, managing
-        PCOS/thyroid/hormonal health, and building habits that actually stick, so you can feel
+        PCOS/thyroid/hormonal health, and building habits that actually stick — so you can feel
         confident in your own skin and stay strong at 60 and beyond.
         </div>
         """,
@@ -361,7 +361,7 @@ st.markdown(f'<div style="margin-top:16px;"><a class="pill-btn" href="{YOUTUBE_U
 # ─────────────────────────────────────────────────────────
 # SERVICES
 # ─────────────────────────────────────────────────────────
-st.markdown('<div class="eyebrow">WORKOUT WITH ME</div><div class="section-title">Services</div>', unsafe_allow_html=True)
+st.markdown('<div class="eyebrow">WORK WITH ME</div><div class="section-title">Services</div>', unsafe_allow_html=True)
 def render_service_card(service):
     st.markdown(
         f"""
@@ -424,7 +424,7 @@ st.markdown(
 
 st.markdown(
     f'<div style="text-align:center; margin-top: 24px;">'
-    f'<a class="pill-btn pill-btn-solid" href="{PAYMENT_LINK}" target="_blank">Pay & Book a Plan</a>'
+    f'<a class="pill-btn pill-btn-solid" href="{PAYMENT_LINK}" target="_blank">💳 Pay & Book a Plan</a>'
     f"</div>",
     unsafe_allow_html=True,
 )
@@ -435,7 +435,7 @@ st.markdown(
 st.markdown('<div id="book"></div>', unsafe_allow_html=True)
 st.markdown('<div class="eyebrow">GET STARTED</div><div class="section-title">Book a Consultation</div>', unsafe_allow_html=True)
 st.markdown(
-'<div style="color:#FFFFFFDD; margin-bottom: 18px; text-align:center;">A 30-minute 1:1 call to talk through your goals — Pick a slot below.</div>',
+    '<div style="color:#FFFFFFDD; margin-bottom: 18px;">A 30-minute 1:1 call to talk through your goals — ₹200, pick a slot below.</div>',
     unsafe_allow_html=True,
 )
 components.iframe(CALENDLY_URL, height=650, scrolling=True)
@@ -451,7 +451,7 @@ st.markdown(
             <a class="pill-btn" href="{YOUTUBE_URL}" target="_blank">YouTube</a>
             <a class="pill-btn" href="https://wa.me/{WHATSAPP_NUMBER}" target="_blank">WhatsApp</a>
         </div>
-        © {BRAND_NAME} — Built For Fitness and Nutrition with love and care.
+        © {BRAND_NAME} — Website built with Streamlit.
     </div>
     """,
     unsafe_allow_html=True,
