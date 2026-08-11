@@ -125,7 +125,7 @@ st.markdown(
         footer {visibility: hidden;}
         header {visibility: hidden;}
 
-        .stApp { background-color: #D6182B; }
+        .stApp { background: linear-gradient(135deg, #FF4B2B 0%, #FF416C 55%, #EF473A 100%); }
         .block-container {padding-top: 2.5rem; padding-bottom: 4rem; max-width: 1180px;}
 
         /* ---- Global center alignment ---- */
@@ -161,7 +161,7 @@ st.markdown(
             text-decoration: none !important; transition: all 0.2s ease;
         }
         .pill-btn:hover { background: #FFFFFF1A; }
-        .pill-btn-solid { background: #FFFFFF; color: #D6182B !important; border: none; }
+        .pill-btn-solid { background: #FFFFFF; color: #FF416C !important; border: none; }
         .pill-row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 28px; }
 
         /* ---- Stats strip ---- */
@@ -190,14 +190,14 @@ st.markdown(
         }
         .service-tag {
             font-size: 0.68rem; letter-spacing: 2px; text-transform: uppercase;
-            color: #D6182B; font-weight: 700; margin-bottom: 8px;
+            color: #FF416C; font-weight: 700; margin-bottom: 8px;
         }
         .service-title { font-size: 1.35rem; font-weight: 700; color: #1A1A1A; margin-bottom: 6px; letter-spacing: -0.3px; }
         .service-desc { font-size: 0.88rem; color: #4A4A4A; margin-bottom: 14px; line-height: 1.45; }
-        .service-price { font-size: 1rem; font-weight: 700; color: #D6182B; }
+        .service-price { font-size: 1rem; font-weight: 700; color: #FF416C; }
 
         .test-card { background: #FFFFFF; border-radius: 20px; padding: 26px; height: 100%; color: #1A1A1A; }
-        .test-stat { font-size: 2.4rem; font-weight: 700; color: #D6182B; letter-spacing: -1px; }
+        .test-stat { font-size: 2.4rem; font-weight: 700; color: #FF416C; letter-spacing: -1px; }
         .test-unit { font-size: 0.95rem; color: #6A6A6A; margin-left: 4px; }
         .test-quote { color: #333333; font-size: 0.92rem; margin-top: 14px; line-height: 1.5; }
 
@@ -224,7 +224,7 @@ st.markdown(
         .yt-play-icon {
             position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
             width: 54px; height: 54px; border-radius: 50%;
-            background: rgba(214, 24, 43, 0.9);
+            background: rgba(255, 65, 108, 0.9);
             display: flex; align-items: center; justify-content: center;
         }
         .yt-play-icon::after {
@@ -396,7 +396,7 @@ for plan in PACKAGE_PRICING:
     cells = ""
     for month in ["1", "2", "3", "6"]:
         price, savings = plan[month]
-        savings_html = f'<br><span style="color:#D6182B; font-size:0.72rem; font-weight:600;">{savings}</span>' if savings else ""
+        savings_html = f'<br><span style="color:#FF416C; font-size:0.72rem; font-weight:600;">{savings}</span>' if savings else ""
         cells += f'<td style="padding:14px 12px; text-align:center; color:#1A1A1A;">{price}{savings_html}</td>'
     table_rows += f'<tr style="border-bottom:1px solid #EEEEEE;"><td style="padding:14px 12px; font-weight:600; color:#1A1A1A;">{plan["name"]}</td>{cells}</tr>'
 
@@ -405,7 +405,7 @@ st.markdown(
     <div class="white-card" style="padding: 8px; overflow-x:auto;">
         <table style="width:100%; border-collapse:collapse; font-size:0.85rem;">
             <thead>
-                <tr style="background:#D6182B;">
+                <tr style="background: linear-gradient(135deg, #FF4B2B 0%, #FF416C 55%, #EF473A 100%);">
                     <th style="padding:14px 12px; text-align:left; color:#fff; border-radius:12px 0 0 0;">PLAN</th>
                     <th style="padding:14px 12px; color:#fff;">1 MONTH</th>
                     <th style="padding:14px 12px; color:#fff;">2 MONTHS</th>
