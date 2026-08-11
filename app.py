@@ -91,9 +91,12 @@ PACKAGE_PRICING = [
 
 # Add real YouTube video links here — thumbnails + embeds are pulled automatically
 YOUTUBE_VIDEOS = [
-    "https://youtu.be/Uw3py4sNgKY",
     "https://youtu.be/xO6vExuYEpg",
     "https://youtu.be/4rY6jifLF28",
+    "https://youtu.be/Sl5p8PsOgAc",
+    "https://youtu.be/5flctzkx_Mo",
+    "https://youtu.be/6gNqK0YE1O4",
+    "https://youtu.be/CZ9pEGP-x_U",
 ]
 
 # ─────────────────────────────────────────────────────────
