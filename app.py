@@ -125,7 +125,7 @@ st.markdown(
         footer {visibility: hidden;}
         header {visibility: hidden;}
 
-        .stApp { background: linear-gradient(135deg, #FF4B2B 0%, #FF416C 55%, #EF473A 100%); }
+        .stApp { background: linear-gradient(rgba(0,0,0,0.28), rgba(0,0,0,0.28)), linear-gradient(135deg, #FF4B2B 0%, #FF416C 55%, #EF473A 100%); }
         .block-container {padding-top: 2.5rem; padding-bottom: 4rem; max-width: 1180px;}
 
         /* ---- Global center alignment ---- */
